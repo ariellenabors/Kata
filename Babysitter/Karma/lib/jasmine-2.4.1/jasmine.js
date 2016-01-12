@@ -2783,7 +2783,7 @@ getJasmineRequireObj().matchersUtil = function(j$) {
         // millisecond representations. Note that invalid dates with millisecond representations
         // of `NaN` are not equivalent.
         return +a == +b;
-      // RegExps are compared by their source patterns and flags.
+      // RegExps are compared by their js patterns and flags.
       case '[object RegExp]':
         return a.source == b.source &&
           a.global == b.global &&
