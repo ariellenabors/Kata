@@ -15,7 +15,18 @@ describe("Babysitter", function () {
         var endTime = 500;
         var startTime = 1100;
         var errorMessage = 'too late';
-        expect(babysitter.calculatePayableHours(startTime,endTime)).toBe(errorMessage);
+        expect(babysitter.calculatePayableHours(startTime, endTime)).toBe(errorMessage);
 
     });
+
+    describe('determining breakdown of hourly wages', function () {
+        it('should be paid $12/hr from start time to bedtime', function () {
+            var startTime = 1800;
+            var bedTime = 2200;
+            var endTime = 100;
+            var expected = 48;
+            expect(babysitter.calculatePayableHours(startTime, endTime, bedTime)).toBe(expected);
+        })
+    })
+
 });
