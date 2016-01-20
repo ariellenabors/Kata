@@ -27,6 +27,21 @@ describe("Babysitter", function () {
             var expected = 48;
             expect(babysitter.calculatePayableHours(startTime, endTime, bedTime)).toBe(expected);
         })
+
+        it('should be paid $8/hr from bedtime to midnight', function () {
+            var bedTime = 2200;
+            var midnight = 0;
+            var endTime = 100;
+            var expected = 16;
+            expect(babysitter.calculatePayableHours(bedTime, midnight, endTime)).toBe(expected);
+        })
+
+        it('should be paid $16/hr from midnight to end of job', function () {
+            var midnight = 0;
+            var endTime = 400;
+            var expected = 64;
+            expect(babysitter.calculatePayableHours(midnight, endTime)).toBe(expected);
+        })
     })
 
 });
