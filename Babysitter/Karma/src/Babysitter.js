@@ -1,6 +1,6 @@
 function Babysitter() {
 
-    this.calculatePayableHours = function (startTime, endTime, bedTime) {
+    this.calculatePayableHours = function (startTime, endTime, bedTime, midnight) {
 
         var errorMessage = '';
         var moneyEarned = 0;
@@ -21,11 +21,12 @@ function Babysitter() {
 
         //reset moneyEarned summation, calculate bed time to midnight, midnight to end of job
         //bed time to midnight rate; midnight to end time rate
+        //determine payable hours if endTime is before midnight
 
         if (moneyEarned > 0){
             return moneyEarned;
         }
-        
+
         if (moneyEarnedPartTwo > 0){
             return moneyEarnedPartTwo;
         }
