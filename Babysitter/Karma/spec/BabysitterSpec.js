@@ -23,7 +23,7 @@ describe("Babysitter", function () {
         it('should be paid $12/hr from start time to bedtime', function () {
             var startTime = 1800;
             var bedTime = 2200;
-            var endTime = 100;
+            var endTime = 2200;
             var expected = 48;
             expect(babysitter.calculatePayableHours(startTime, endTime, bedTime)).toBe(expected);
         });
