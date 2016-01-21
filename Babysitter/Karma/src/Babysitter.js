@@ -1,13 +1,14 @@
 function Babysitter() {
     var midnight = 2400;
 
-    function calculateHoursWorked(endTime, startTime) {
+    this.calculateHoursWorked = function (endTime, startTime) {
 
         var totalHoursWorked = endTime - startTime;
         if (endTime < 1700) {
             totalHoursWorked += midnight;
         }
-    }
+        return totalHoursWorked;
+    };
 
     this.calculatePayableHours = function (startTime, endTime, bedTime) {
 
@@ -20,14 +21,14 @@ function Babysitter() {
         var hoursWorkedFromBedToMidnight = midnight - bedTime;
         moneyEarned = startTimeToBedTimeRate * hoursWorkedFromStartToBed;
 
-        calculateHoursWorked(endTime, startTime);
-        if(endTime >= midnight){
+        this.calculateHoursWorked(endTime, startTime);
+        if (endTime >= midnight) {
             moneyEarned += bedTimeToMidnightRate * hoursWorkedFromBedToMidnight;
         }
 
         //moneyEarnedPartThree = midnightToEndTimeRate * hoursWorkedFromMidnightToEndTime;
 
-        if (moneyEarned > 0){
+        if (moneyEarned > 0) {
             return moneyEarned;
         }
 
